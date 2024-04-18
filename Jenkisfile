@@ -12,7 +12,7 @@ pipeline {
                     // Configura los permisos de ejecución para el script si es necesario
                     sh 'chmod +x Pruebita_Bash.sh'
                     
-                    // Ejecuta el script
+                    // Ejecuta el scriptt
                     sh './Pruebita_Bash.sh Hola Mundo'
                 }
             }
