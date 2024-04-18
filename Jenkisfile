@@ -1,0 +1,21 @@
+chmod +x Prueba_bash
+pipeline {
+    agent any
+    
+    stages {
+        stage('Ejecutar Script') {
+            steps {
+                script {
+                    // Clona el repositorio de Git si aún no está disponible en Jenkins
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Leandritonica92/Prueba_bash.git']]])
+                    
+                    // Configura los permisos de ejecución para el script si es necesario
+                    sh 'chmod +x Pruebita_Bash.sh'
+                    
+                    // Ejecuta el script
+                    sh './Pruebita_Bash.sh Hola Mundo'
+                }
+            }
+        }
+    }
+}
